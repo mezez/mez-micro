@@ -28,7 +28,7 @@ public class CustomerService {
         //save and flush give us access to customer info like id
         customerRepository.saveAndFlush(customer);
         //todo: check if fraudster
-        FraudCheckReponse fraudCheckReponse = restTemplate.getForObject("http://127.0.0.1:8081/api/v1/fraud-check/{customerId}", FraudCheckReponse.class, customer.getId());
+        FraudCheckReponse fraudCheckReponse = restTemplate.getForObject("http://localhost:8081/api/v1/fraud-check/{customerId}", FraudCheckReponse.class, customer.getId());
         if(fraudCheckReponse.isFraudster()){
             throw new IllegalStateException("fraudster");
         }

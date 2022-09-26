@@ -17,10 +17,10 @@ public class FraudController {
 //        this.fraudCheckService = fraudCheckService;
 //    }
 
-    @GetMapping(path = "customerId")
-    public FraudCheckReponse isFraudster(@PathVariable("customerId") Integer customerID){
-        boolean isFraudulentCustomer = fraudCheckService.isFraudulentCustomer(customerID);
-            log.info("fraud check request for customer {}", customerID);
+    @GetMapping(path = "{customerId}")
+    public FraudCheckReponse isFraudster(@PathVariable("customerId") Integer customerId){
+        boolean isFraudulentCustomer = fraudCheckService.isFraudulentCustomer(customerId);
+            log.info("fraud check request for customer {}", customerId);
         return new FraudCheckReponse(isFraudulentCustomer);
     }
 
