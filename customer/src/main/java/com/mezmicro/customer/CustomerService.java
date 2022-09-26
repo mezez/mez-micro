@@ -1,9 +1,16 @@
 package com.mezmicro.customer;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-public record CustomerService(CustomerRepository customerRepository) {
+@AllArgsConstructor
+public class CustomerService {
+//public record CustomerService(CustomerRepository customerRepository) {
+
+    private final CustomerRepository customerRepository;
+
+    //TAKEN CARE OF MY ALLARGSCONSTRUCTOR ANNOTATION
     public void registerCustomer(CustomerRegistrationRequest request) {
         Customer customer = Customer.builder()
                 .firstName(request.firstName())

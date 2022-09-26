@@ -1,5 +1,5 @@
 services:
-  postgres:
+  postgres: # for sake of space, one postgres service is reused for all the microservices
     container_name: postgres
     image: postgres
     environment:
